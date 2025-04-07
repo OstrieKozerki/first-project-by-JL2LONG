@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Выпадающие ссылки</title>
+<style>
+.button-container {
+  position: relative;
+  display: inline-block;
+}
+
+
+.btn-grade {background-image: linear-gradient(to right, #003973 0%, #E5E5BE  51%, #003973  100%)}
+    .btn-grad {
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+          }
+
+     .btn-grad:hover {
+            background-position: right center; 
+            color: #fff;
+            text-decoration: none;
+          }
+         
+
+
+.links {
+  position: absolute;
+  top: 0; /* Позиционируем ссылки над кнопкой */
+  left: calc(100% + 10px); /* Смещаем ссылки вправо на 10px от кнопки */
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 5px;
+  padding: 10px;
+  display: none; /* Скрываем ссылки по умолчанию */
+  white-space: nowrap; /* Запрещаем перенос текста */
+}
+
+.links a {
+  color: black;
+  padding: 8px 12px;
+  text-decoration: none;
+  display: block;
+  border-radius: 3px;
+}
+
+.links a:hover {
+  background-color: #ddd;
+}
+
+/* Добавляем небольшие отступы между ссылками */
+.links a + a {
+  margin-top: 5px;
+}
+</style>
+</head>
+<body>
+
+<div class="button-container">
+  <button class="button" id="myButton">Наведи!</button>
+  <div class="links" id="myLinks">
+    <a href="#">Ссылка 1</a>
+    <a href="#">Ссылка 2</a>
+    <a href="#">Ссылка 3</a>
+  </div>
+</div>
+
+<script>
+const button = document.getElementById("myButton");
+const links = document.getElementById("myLinks");
+let timeoutId;
+
+button.addEventListener("mouseover", function() {
+  clearTimeout(timeoutId); // Отменяем предыдущий таймер, если он был
+  links.style.display = "block"; // Показываем ссылки
+});
+
+button.addEventListener("mouseout", function() {
+  // Запускаем таймер на 15 секунд
+  timeoutId = setTimeout(function() {
+    links.style.display = "none"; // Скрываем ссылки
+  }, 15000);
+});
+
+// Добавляем обработчик события mouseover на сами ссылки, чтобы не исчезали, когда курсор на них
+links.addEventListener("mouseover", function() {
+  clearTimeout(timeoutId); // Отменяем таймер, если он был
+  links.style.display = "block"; // Показываем ссылки (на всякий случай)
+});
+
+// Добавляем обработчик события mouseout на сами ссылки
+links.addEventListener("mouseout", function() {
+  // Запускаем таймер на 15 секунд
+  timeoutId = setTimeout(function() {
+    links.style.display = "none"; // Скрываем ссылки
+  }, 7000);
+});
+</script>
+
+</body>
+</html>
