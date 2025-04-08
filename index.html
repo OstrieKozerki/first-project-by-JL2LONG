@@ -25,7 +25,7 @@
 
      .btn-grad:hover {
             background-position: right center; 
-            color: #fff;
+            color: #ff0000;
             text-decoration: none;
           }
          
@@ -75,35 +75,35 @@
 </div>
 
 <script>
-const button = document.getElementById("myButton");
-const links = document.getElementById("myLinks");
-let timeoutId;
-
-button.addEventListener("mouseover", function() {
-  clearTimeout(timeoutId); // Отменяем предыдущий таймер, если он был
-  links.style.display = "block"; // Показываем ссылки
-});
-
-button.addEventListener("mouseout", function() {
-  // Запускаем таймер на 15 секунд
-  timeoutId = setTimeout(function() {
-    links.style.display = "none"; // Скрываем ссылки
-  }, 15000);
-});
-
-// Добавляем обработчик события mouseover на сами ссылки, чтобы не исчезали, когда курсор на них
-links.addEventListener("mouseover", function() {
-  clearTimeout(timeoutId); // Отменяем таймер, если он был
-  links.style.display = "block"; // Показываем ссылки (на всякий случай)
-});
-
-// Добавляем обработчик события mouseout на сами ссылки
-links.addEventListener("mouseout", function() {
-  // Запускаем таймер на 15 секунд
-  timeoutId = setTimeout(function() {
-    links.style.display = "none"; // Скрываем ссылки
-  }, 7000);
-});
+    const button = document.getElementById("myButton");
+    const links = document.getElementById("myLinks");
+    let timeoutId;
+    
+    button.addEventListener("mouseover", function() {
+      clearTimeout(timeoutId); // Отменяем предыдущий таймер, если он был
+      links.style.display = "block"; // Показываем ссылки
+    });
+    
+    button.addEventListener("mouseout", function() {
+      // Запускаем таймер на 15 секунд
+      timeoutId = setTimeout(function() {
+        links.style.display = "none"; // Скрываем ссылки
+      }, 15000);
+    });
+    
+    // Добавляем обработчик события mouseover на сами ссылки, чтобы не исчезали, когда курсор на них
+    links.addEventListener("mouseover", function() {
+      clearTimeout(timeoutId); // Отменяем таймер, если он был
+      links.style.display = "block"; // Показываем ссылки (на всякий случай)
+    });
+    
+    // Добавляем обработчик события mouseout на сами ссылки
+    links.addEventListener("mouseout", function() {
+      // Запускаем таймер на 15 секунд
+      timeoutId = setTimeout(function() {
+        links.style.display = "none"; // Скрываем ссылки
+      }, 7000);
+    });
 </script>
 
 </body>
